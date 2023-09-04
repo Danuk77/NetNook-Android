@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NetNook-Android</string>
+    <string name="integrationKey">Integration key</string>
+    <string name="databaseID">Database ID</string>
+    <string name="title">Title for the main page</string>
+    <string name="submitKeysButton">Button to submit the </string>
+</resources>
