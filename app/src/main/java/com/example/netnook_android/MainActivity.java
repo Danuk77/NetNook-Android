@@ -214,6 +214,7 @@ public class MainActivity extends AppCompatActivity {
     public void saveWrapper(View v){
         if(saveKeys(this)){
             Log.v("userMsg", "Success");
+            Toast.makeText(this, "Successfully saved integration configuration", 3);
         }
     }
 }

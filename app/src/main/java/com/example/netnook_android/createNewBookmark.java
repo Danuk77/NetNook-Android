@@ -67,20 +67,15 @@ public class createNewBookmark extends AppCompatActivity {
     }
 
     /**
-     * @param intKey Notion integration key
-     * Function used for creating a request to the Notion API to create an entry for the given database ID.
+     * Create the JSON object for the body of the request to Notion API
+     * @param desc Description to be sent
+     * @return JSON object used for the body of the request
      */
-    protected void sendToNotion(String intKey, String desc){
-        RequestQueue volleyQueue = Volley.newRequestQueue(this);
-        // Notion API endpoint
-        String fetchUrl = "https://api.notion.com/v1/pages";
-
+    protected JSONObject createRequestBody(String desc){
         // JSON object to send
         JSONObject requestBody = new JSONObject();
 
-        // Construct the body of the request
-        try {
-
+        try{
             // Database info
             JSONObject parent = new JSONObject();
             parent.put("type", "database_id");
@@ -116,10 +111,23 @@ public class createNewBookmark extends AppCompatActivity {
             // Connect all objects
             requestBody.put("parent", parent);
             requestBody.put("properties", properties);
-
-        } catch (JSONException e) {
+        }catch (JSONException e){
             e.printStackTrace();
         }
+        return requestBody;
+    }
+
+    /**
+     * @param intKey Notion integration key
+     * Function used for creating a request to the Notion API to create an entry for the given database ID.
+     */
+    protected void sendToNotion(String intKey, String desc){
+        RequestQueue volleyQueue = Volley.newRequestQueue(this);
+        // Notion API endpoint
+        String fetchUrl = "https://api.notion.com/v1/pages";
+
+        // Construct the body of the request
+        JSONObject requestBody = createRequestBody(desc);
 
         StringRequest request = new StringRequest(
                 Request.Method.POST,
