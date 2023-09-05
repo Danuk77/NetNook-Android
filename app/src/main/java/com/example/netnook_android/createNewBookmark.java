@@ -61,6 +61,9 @@ public class createNewBookmark extends AppCompatActivity {
     public void submit(View v){
         // Submit it to notion
         sendToNotion(this.integrationKey, description.getText().toString());
+
+        // Return back to the configuration screen
+        this.finish();
     }
 
     /**

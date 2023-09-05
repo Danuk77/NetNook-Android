@@ -11,7 +11,7 @@
         android:id="@+id/urlInput"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/edittextstyle"
         android:ems="10"
         android:hint="URL"
@@ -22,13 +22,13 @@
         android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/titleInput"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/edittextstyle"
         android:ems="10"
         android:hint="Title"
@@ -38,31 +38,28 @@
         android:singleLine="true"
         app:layout_constraintEnd_toEndOf="@+id/urlInput"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/urlInput"
-        app:layout_constraintTop_toBottomOf="@+id/urlInput" />
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
         android:id="@+id/descriptionInput"
         android:layout_width="wrap_content"
         android:layout_height="100dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/edittextstyle"
         android:ems="10"
         android:hint="Description"
         android:inputType="text"
         android:lineSpacingExtra="8sp"
         android:paddingStart="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.039"
-        app:layout_constraintStart_toStartOf="@+id/titleInput"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.396" />
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="232dp"
         android:layout_height="105dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="52dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,48 +70,48 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
         android:text="URL"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/urlInput"
         app:layout_constraintStart_toStartOf="@+id/urlInput"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.666" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:text="Title"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/titleInput"
+        app:layout_constraintStart_toStartOf="@+id/urlInput"
         app:layout_constraintTop_toBottomOf="@+id/urlInput" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="20dp"
         android:text="Description"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/descriptionInput"
+        app:layout_constraintStart_toStartOf="@+id/titleInput"
         app:layout_constraintTop_toBottomOf="@+id/titleInput" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="95dp"
         android:layout_height="58dp"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="40dp"
         android:onClick="submit"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descriptionInput" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

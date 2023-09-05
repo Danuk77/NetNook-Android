@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
 
-
         // Check if the user has already configured the keys, if so populate the above two Views with that information
         // Otherwise the function informs the user to enter the keys
         if(checkKeys(this)){
@@ -94,10 +93,18 @@ public class MainActivity extends AppCompatActivity {
             if ("text/plain".equals(type)) {
                 // Parse the information received by the intent
                 Bundle extras = intent.getExtras();
+
                 // Check if the bundle contains keys which we can use
-                if(extras.containsKey("android.intent.extra.TEXT") && extras.containsKey("android.intent.extra.SUBJECT")){
+                // Instagram only contains text
+                if(extras.containsKey("android.intent.extra.TEXT")){
                     url = extras.get("android.intent.extra.TEXT").toString();
-                    title = extras.get("android.intent.extra.SUBJECT").toString();
+
+                    // If the url contains a title add that too
+                    if( extras.containsKey("android.intent.extra.SUBJECT")) {
+                        title = extras.get("android.intent.extra.SUBJECT").toString();
+                    }else{
+                        title = "";
+                    }
 
                     // Construct the request body (JSON object) being sent to the server
                     try{
@@ -108,6 +115,9 @@ public class MainActivity extends AppCompatActivity {
                         i.putExtra("integrationKey", this.integrationKey);
                         i.putExtra("databaseID", this.databaseId);
                         startActivity(i);
+
+                        // Inform the user that the content has been successfully saved
+                        Toast.makeText(this, "Successfully saved to notion", 3);
                     } catch (Exception e) {
                         Log.e("userMsg", "Error occurred");
                     }
